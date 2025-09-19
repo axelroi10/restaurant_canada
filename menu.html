@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>f-Rest Surrey - Menu</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #fff;
+      padding-top: 120px;
+      overflow-x: hidden;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: #fff;
+      color: #FF8C00;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 40px;
+      text-align: center;
+      line-height: 100px;
+      z-index: 1000;
+      text-shadow: 3px 3px 8px #333;
+    }
+    .home-btn {
+      position: fixed;
+      top: 110px;
+      left: 20px;
+      background-color: #FF8C00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+    .home-btn:hover {
+      background-color: #e67300;
+      transform: scale(1.05);
+    }
+      img {
+  width: 290px;        /* largeur */
+  height: 290px;       /* hauteur plus grande que la largeur */
+}
+    .menu-banner {
+      text-align: center;
+      margin: 50px auto 20px auto;
+    }
+    .menu-banner h2 {
+      color: #FF8C00;
+      font-size: 36px;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+    .menu-banner p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.5;
+      color: #fff;
+    }
+    .menu-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width:900px;
+      max-width: 1400px;
+      margin: 50px auto 100px auto;
+  
+    }
+      
+    .menu-item {
+      background: #1a1a1a;
+      border: 2px solid #FF8C00;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .menu-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+    .menu-item h3 {
+      color: #FF8C00;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+    .menu-item p {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .menu-item span {
+      color: #FF8C00;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .menu-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(255,140,0,0.5);
+    }
+    .voir-btn {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #FF8C00;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 25px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .voir-btn:hover {
+      background-color: #e67300;
+      transform: scale(1.05);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #1a1a1a;
+      border: 3px solid #FF8C00;
+      border-radius: 15px;
+      padding: 30px;
+      width: 70%;
+      max-width: 700px;
+      text-align: center;
+      color: #fff;
+      animation: zoomIn 0.4s ease;
+    }
+    @keyframes zoomIn {
+      from {transform: scale(0.5);}
+      to {transform: scale(1);}
+    }
+    .close-btn {
+      margin-top: 20px;
+      background-color: #FF8C00;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .close-btn:hover {
+      background-color: #e67300;
+    }
+    @media (max-width: 1100px) {
+      .menu-section { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 750px) {
+      .menu-section { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>f-Rest Surrey</header>
+<button class="home-btn" onclick="window.location.href='accueil.html'">🏠 Home</button>
+
+<div class="menu-banner">
+  <h2>Notre Menu Canadien</h2>
+  <p>Découvrez notre sélection de plats, boissons et desserts typiques canadiens, tous préparés avec soin et amour.</p>
+</div>
+
+<section class="menu-section">
+
+  <!-- Plats avec logos si trouvés, sinon texte -->
+  <div class="menu-item">
+    <img src="https://www.pngkey.com/png/full/316-3164414_try-delicious-poutine-at-burger-king-and-enjoy.png" alt="Poutine">
+    <h3>Poutine</h3>
+    <p>Frites, fromage en grains, sauce brune maison.</p>
+    <span>$12 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('poutine')">Voir +</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://www.pngarts.com/files/5/Apple-Pie-PNG-Picture.png" alt="">
+    <h3>Tourtière</h3>
+    <p>Tarte à la viande traditionnelle du Québec.</p>
+    <span>$18 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('tourtiere')">Voir +</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://png.pngtree.com/png-vector/20240416/ourmid/pngtree-delicious-nanaimo-bars-isolated-on-transparent-background-png-image_12286475.png" alt="">
+    <h3>Nanaimo Bars</h3>
+    <p>Dessert sucré en trois couches, originaire de Colombie-Britannique.</p>
+    <span>$6 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('nanaimo')">Voir +</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://png.pngtree.com/png-vector/20250701/ourmid/pngtree-delicious-3d-cartoon-canadian-butter-tart-icon-with-pecan-nuts-and-png-image_16594945.webp" alt="">
+    <h3>Butter Tarts</h3>
+    <p>Petites tartes sucrées, cœur fondant au beurre.</p>
+    <span>$5 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('buttertart')">Voir +</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://static.vecteezy.com/system/resources/previews/052/244/724/non_2x/lobster-roll-on-a-transparent-background-free-png.png" alt="">
+    <h3>Lobster Roll</h3>
+    <p>Rouleau de homard de la Nouvelle-Écosse.</p>
+    <span>$22 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('lobster')">Voir +</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://png.pngtree.com/png-vector/20241120/ourmid/pngtree-delicious-beef-meal-png-image_14504191.png" alt="">
+    <h3>Jiggs’ Dinner</h3>
+    <p>Viande salée et légumes bouillis, plat traditionnel.</p>
+    <span>$20 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('jiggs')">Voir +</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://png.pngtree.com/png-vector/20241109/ourmid/pngtree-potato-gratin-baked-with-cream-and-cheese-on-white-bowl-transparent-png-image_14327586.png" alt="">
+    <h3>Cod au Gratin</h3>
+    <p>Morue gratinée à la sauce crémeuse.</p>
+    <span>$25 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('cod')">Voir +</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://groupepart.ca/cdn/shop/files/GRPART_photo_dessert_pouding_chaumeur.png?v=1701280166" alt="">
+    <h3>Pouding Chômeur</h3>
+    <p>Dessert québécois au sirop d’érable.</p>
+    <span>$8 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('pouding')">Voir +</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://png.pngtree.com/png-vector/20240221/ourmid/pngtree-pea-soup-green-homemade-plaid-png-image_11760131.png" alt="">
+    <h3>Split Pea Soup</h3>
+    <p>Soupe aux pois jaunes classique du Québec.</p>
+    <span>$7 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('soup')">Voir +</button>
+  </div>
+
+  <div class="menu-item">
+    <img src="https://italianmarket.ca/wp-content/uploads/2020/08/montrealSmokedMeat-1-300x300.png" alt="">
+    <h3>Montreal Smoked Meat</h3>
+    <p>Viande fumée servie sur pain de seigle.</p>
+    <span>$15 CAD</span><br>
+    <button class="voir-btn" onclick="openModal('smoked')">Voir +</button>
+  </div>
+
+</section>
+
+<!-- Modals -->
+<div id="poutine" class="modal">
+  <div class="modal-content">
+    <h2>🍟 Poutine</h2>
+    <p>Frites croustillantes, fromage en grains, sauce brune maison.</p>
+    <p>Prix : $12 CAD</p>
+    <button class="close-btn" onclick="closeModal('poutine')">Fermer</button>
+  </div>
+</div>
+
+<div id="tourtiere" class="modal">
+  <div class="modal-content">
+    <h2>🥧 Tourtière</h2>
+    <p>Tarte à la viande traditionnelle du Québec.</p>
+    <p>Prix : $18 CAD</p>
+    <button class="close-btn" onclick="closeModal('tourtiere')">Fermer</button>
+  </div>
+</div>
+
+<div id="nanaimo" class="modal">
+  <div class="modal-content">
+    <h2>🍫 Nanaimo Bars</h2>
+    <p>Dessert sucré en trois couches, originaire de Colombie-Britannique.</p>
+    <p>Prix : $6 CAD</p>
+    <button class="close-btn" onclick="closeModal('nanaimo')">Fermer</button>
+  </div>
+</div>
+
+<div id="buttertart" class="modal">
+  <div class="modal-content">
+    <h2>🧁 Butter Tarts</h2>
+    <p>Petites tartes sucrées, cœur fondant au beurre.</p>
+    <p>Prix : $5 CAD</p>
+    <button class="close-btn" onclick="closeModal('buttertart')">Fermer</button>
+  </div>
+</div>
+
+<div id="lobster" class="modal">
+  <div class="modal-content">
+    <h2>🦞 Lobster Roll</h2>
+    <p>Rouleau de homard de la Nouvelle-Écosse.</p>
+    <p>Prix : $22 CAD</p>
+    <button class="close-btn" onclick="closeModal('lobster')">Fermer</button>
+  </div>
+</div>
+
+<div id="jiggs" class="modal">
+  <div class="modal-content">
+    <h2>🥘 Jiggs’ Dinner</h2>
+    <p>Viande salée et légumes bouillis, plat traditionnel.</p>
+    <p>Prix : $20 CAD</p>
+    <button class="close-btn" onclick="closeModal('jiggs')">Fermer</button>
+  </div>
+</div>
+
+<div id="cod" class="modal">
+  <div class="modal-content">
+    <h2>🐟 Cod au Gratin</h2>
+    <p>Morue gratinée à la sauce crémeuse.</p>
+    <p>Prix : $25 CAD</p>
+    <button class="close-btn" onclick="closeModal('cod')">Fermer</button>
+  </div>
+</div>
+
+<div id="pouding" class="modal">
+  <div class="modal-content">
+    <h2>🍮 Pouding Chômeur</h2>
+    <p>Dessert québécois au sirop d’érable.</p>
+    <p>Prix : $8 CAD</p>
+    <button class="close-btn" onclick="closeModal('pouding')">Fermer</button>
+  </div>
+</div>
+
+<div id="soup" class="modal">
+  <div class="modal-content">
+    <h2>🥣 Split Pea Soup</h2>
+    <p>Soupe aux pois jaunes classique du Québec.</p>
+    <p>Prix : $7 CAD</p>
+    <button class="close-btn" onclick="closeModal('soup')">Fermer</button>
+  </div>
+</div>
+
+<div id="smoked" class="modal">
+  <div class="modal-content">
+    <h2>🥩 Montreal Smoked Meat</h2>
+    <p>Viande fumée servie sur pain de seigle.</p>
+    <p>Prix : $15 CAD</p>
+    <button class="close-btn" onclick="closeModal('smoked')">Fermer</button>
+  </div>
+</div>
+
+<script>
+function openModal(id){document.getElementById(id).style.display="flex";}
+function closeModal(id){document.getElementById(id).style.display="none";}
+</script>
+
+</body>
+</html>
